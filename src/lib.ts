@@ -20,6 +20,10 @@ export function countTokens(tokens: string[]) {
         }
     }
 
+    return tokenCounts
+}
+
+export function sortTokens(tokenCounts:{[key: string]: number}) {
     return Object.entries(tokenCounts).sort((a, b) => b[1] - a[1])
 }
 
