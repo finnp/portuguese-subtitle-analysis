@@ -8,3 +8,6 @@ subtitles:
 
 tokens:
 	deno run --allow-read --allow-net --allow-write create-tokens.ts
+
+count:
+	deno run --allow-read --allow-net --allow-write count-tokens.ts

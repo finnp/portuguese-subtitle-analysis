@@ -51,3 +51,12 @@ export function isNotName(token: string) {
 export function getTokens(line: string) {
     return line.toLowerCase().replace(/[,.:"]/g, ' ').split(/\s+/) 
   }
+
+export function readData(file: string) {
+    const text = Deno.readTextFileSync(`./data/${file}.json`)
+    return JSON.parse(text)
+}
+
+export function writeData(file: string, data: any) {
+    Deno.writeTextFileSync(`./data/${file}.json`, JSON.stringify(data, null, '  '))
+}

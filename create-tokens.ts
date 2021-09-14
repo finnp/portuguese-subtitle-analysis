@@ -1,7 +1,6 @@
-import { getTokens, hasALetter, isNotName, isNotStopword } from "./src/lib.ts";
+import { getTokens, hasALetter, isNotName, isNotStopword, readData, writeData } from "./src/lib.ts";
 
-const text = await Deno.readTextFileSync("./data/lines.json")
-const lines = JSON.parse(text)
+const lines = readData('lines')
 
 const allTokens = []
 
@@ -17,6 +16,6 @@ for (const line of lines) {
     }
 }
 
-Deno.writeTextFileSync('./data/tokens.json', JSON.stringify(allTokens, null, '  '))
+writeData('tokens', allTokens)
 
 console.log(allTokens.length, 'tokens')
