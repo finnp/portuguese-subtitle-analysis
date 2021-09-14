@@ -10,6 +10,6 @@ Using subtitles of the portuguese show
 
 Run with
 
-```sh
-deno run --allow-read index.ts
+```
+make
 ```
