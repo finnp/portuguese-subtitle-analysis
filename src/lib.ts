@@ -40,3 +40,10 @@ export async function getSubtitles() {
 export function getTextFromSubtitle(subtitle: string): string[] {
     return subtitle.split('\n\n').map(s => s.split('\n').slice(2).join('\n'))
  }
+
+export function isNotName(token: string) {
+    const names = [
+        'lourenço', 'antónio', 'eduardo', 'matilde',
+      ]
+      return !names.includes(token)
+}
