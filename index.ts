@@ -1,4 +1,4 @@
-import { countTokens, getSubtitles, getTextFromSubtitle, hasALetter, isNotName, isNotStopword, sortTokens } from "./src/lib.ts";
+import { countTokens, getSubtitles, getTextFromSubtitle, getTokens, hasALetter, isNotName, isNotStopword, sortTokens } from "./src/lib.ts";
 
 const subtitles = await getSubtitles();
 
@@ -37,6 +37,3 @@ function rateLine(line: string): number {
   return Math.min(tokenCounts[token] || 0, 30)
 }
 
-function getTokens(line: string) {
-  return line.toLowerCase().replace(/[,.:]/g, ' ').split(/\s+/) 
-}

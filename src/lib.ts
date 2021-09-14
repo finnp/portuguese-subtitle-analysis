@@ -47,3 +47,7 @@ export function isNotName(token: string) {
       ]
       return !names.includes(token)
 }
+
+export function getTokens(line: string) {
+    return line.toLowerCase().replace(/[,.:"]/g, ' ').split(/\s+/) 
+  }

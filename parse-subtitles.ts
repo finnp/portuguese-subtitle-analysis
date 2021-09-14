@@ -6,7 +6,7 @@ const subtitles = await getSubtitles();
 
 const lines = subtitles.map((subtitle, index) => parseSubtitles(subtitle, Number(index) + 1)).flat()
 
-await Deno.writeTextFileSync('./data/lines.json', JSON.stringify(lines, null, '  '))
+Deno.writeTextFileSync('./data/lines.json', JSON.stringify(lines, null, '  '))
 
 
 function parseSubtitles(subtitle: string, episode: number){
