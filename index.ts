@@ -4,7 +4,7 @@ const subtitles = await getSubtitles();
 
 const allLines = subtitles.map(getTextFromSubtitle).flat()
 
-const tokens = allLines.join('\n').toLowerCase().replace(/\,/g, '').split(/\s+/)
+const tokens = getTokens(allLines.join('\n'))
 
 const cleanedTokens = tokens.filter(hasALetter)
 
@@ -14,9 +14,13 @@ const tokensSorted = sortTokens(tokenCounts)
 
 const bestLines = allLines.map(line => [line, rateLine(line)]).sort(([, a], [, b]) => (b as number) - (a as number))
 
-for (const [token,] of tokensSorted.slice(0, 100)) {
+for (const [token,occurances] of tokensSorted.slice(0, 200)) {
   if (isNotStopword(token) && isNotName(token)) {
-    console.log(token, '\n', findLineForToken(token), '\n\n')
+    console.log(`
+${token} (${occurances})
+${findLineForToken(token)}
+
+    `)
   }
 }
 
@@ -34,5 +38,5 @@ function rateLine(line: string): number {
 }
 
 function getTokens(line: string) {
-  return line.toLowerCase().replace(/\,/g, '').split(/\s+/) 
+  return line.toLowerCase().replace(/[,.:]/g, ' ').split(/\s+/) 
 }
