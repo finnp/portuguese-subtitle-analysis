@@ -3,8 +3,13 @@
 const request = (await fetch('https://raw.githubusercontent.com/stopwords-iso/stopwords-pt/master/stopwords-pt.json'))
 const stopwords = await request.json()
 
-const text = await Deno.readTextFile("./subtitles/episode_1_pt.vtt");
+const subtitles = []
 
+for await (const dirEntry of Deno.readDir('./subtitles/pt')) {
+    subtitles.push(await Deno.readTextFile('./subtitles/pt/' + dirEntry.name))
+}
+
+const text = subtitles.join('\n')
 
 const completeText = text.split('\n\n').map(s => s.split('\n').slice(2)).flat().join(' ');
 
