@@ -14,7 +14,7 @@ const tokensSorted = sortTokens(tokenCounts)
 
 const bestLines = allLines.map(line => [line, rateLine(line)]).sort(([, a], [, b]) => (b as number) - (a as number))
 
-for (const [token,occurances] of tokensSorted.slice(0, 200)) {
+for (const [token,occurances] of tokensSorted.slice(0, 300)) {
   if (isNotStopword(token) && isNotName(token)) {
     console.log(`
 ${token} (${occurances})

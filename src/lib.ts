@@ -43,7 +43,7 @@ export function getTextFromSubtitle(subtitle: string): string[] {
 
 export function isNotName(token: string) {
     const names = [
-        'lourenço', 'antónio', 'eduardo', 'matilde', 'cristina', 'rodrigo', 'testículo'
+        'lourenço', 'antónio', 'eduardo', 'matilde', 'cristina', 'rodrigo', 'testículo', 'pôr', 'maria', 'sol', 'madalena', 'simão'
       ]
       return !names.includes(token)
 }
